@@ -81,14 +81,14 @@ fi
 # Install packages from Brewfile
 echo "📥 Installing packages from Brewfile..."
 # Before brew bundle line (line 87), add:
-if [ ! -f ~/Brewfile ]; then
+if [ ! -f ./Brewfile ]; then
     echo "❌ Error: Brewfile not found at ~/Brewfile"
     echo "Please create a Brewfile first."
     exit 1
 fi
 
 
-brew bundle --file=~/Brewfile
+brew bundle --file=./Brewfile
 # Read Brewfile from home directory and install all listed apps
 # '~' means your home folder
 # '--file=' specifies which Brewfile to use
