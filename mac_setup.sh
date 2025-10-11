@@ -82,7 +82,7 @@ fi
 echo "📥 Installing packages from Brewfile..."
 # Before brew bundle line (line 87), add:
 if [ ! -f ./Brewfile ]; then
-    echo "❌ Error: Brewfile not found at ~/Brewfile"
+    echo "❌ Error: Brewfile not found at ./Brewfile"
     echo "Please create a Brewfile first."
     exit 1
 fi
@@ -137,6 +137,16 @@ fi
 if command -v uv &> /dev/null; then
     echo "🐍 Installing latest Python..."
     uv python install --default
+    
+    # Add Python to PATH if not already there
+    if ! grep -q '/Users/adonis/.local/bin' ~/.zshrc 2>/dev/null; then
+        echo 'export PATH="/Users/adonis/.local/bin:$PATH"' >> ~/.zshrc
+        echo "✅ Python PATH configured"
+    fi
+    
+    # Also add to current session
+    export PATH="/Users/adonis/.local/bin:$PATH"
+    
     # Use python --version instead of parsing uv output
     PYTHON_VERSION=$(python --version 2>&1 | awk '{print $2}')
     echo "✅ Python $PYTHON_VERSION installed and set as default"
