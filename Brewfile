@@ -60,6 +60,8 @@ brew "k3d"                      # Lightweight local Kubernetes
 brew "helm"                     # Kubernetes package manager
 
 
+#brew "ollama"
+
 # ============================================
 # INFRASTRUCTURE & DEVOPS
 # ============================================
