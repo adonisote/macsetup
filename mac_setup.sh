@@ -174,6 +174,33 @@ if command -v colima &> /dev/null; then
 fi
 
 
+# ── Docker CLI plugins (buildx, compose) ────
+# Homebrew's docker-buildx/docker-compose formulas install standalone
+# binaries; Docker only picks them up as `docker buildx`/`docker compose`
+# subcommands if they're symlinked into ~/.docker/cli-plugins/.
+mkdir -p ~/.docker/cli-plugins
+
+if command -v docker-buildx &> /dev/null; then
+    echo "🐳 Linking docker-buildx as a Docker CLI plugin..."
+    if [ ! -e ~/.docker/cli-plugins/docker-buildx ]; then
+        ln -sfn "$(command -v docker-buildx)" ~/.docker/cli-plugins/docker-buildx
+        echo "✅ docker-buildx linked into ~/.docker/cli-plugins/"
+    else
+        echo "✅ docker-buildx already linked"
+    fi
+fi
+
+if command -v docker-compose &> /dev/null; then
+    echo "🐳 Linking docker-compose as a Docker CLI plugin..."
+    if [ ! -e ~/.docker/cli-plugins/docker-compose ]; then
+        ln -sfn "$(command -v docker-compose)" ~/.docker/cli-plugins/docker-compose
+        echo "✅ docker-compose linked into ~/.docker/cli-plugins/"
+    else
+        echo "✅ docker-compose already linked"
+    fi
+fi
+
+
 # ── GitHub CLI hint ─────────────────────────
 if command -v gh &> /dev/null; then
     echo ""

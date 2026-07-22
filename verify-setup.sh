@@ -150,6 +150,18 @@ else
   fail "colima not found"
 fi
 
+if docker buildx version &>/dev/null; then
+  pass "docker buildx plugin available"
+else
+  fail "docker buildx not found — run: brew install docker-buildx && ln -sfn \$(command -v docker-buildx) ~/.docker/cli-plugins/docker-buildx"
+fi
+
+if docker compose version &>/dev/null; then
+  pass "docker compose plugin available"
+else
+  fail "docker compose plugin not linked — run: ln -sfn \$(command -v docker-compose) ~/.docker/cli-plugins/docker-compose"
+fi
+
 # ─────────────────────────────────────────
 header "FONTS"
 # ─────────────────────────────────────────

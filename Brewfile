@@ -55,6 +55,7 @@ brew "uv"                       # Python version manager
 # ============================================
 brew "docker"                   # Docker CLI
 brew "docker-compose"           # Docker Compose tool
+brew "docker-buildx"            # BuildKit CLI plugin (required for RUN --mount=type=cache, etc.)
 brew "colima"                   # Lightweight Docker runtime (replaces Docker Desktop)
 brew "kubectl"                  # Kubernetes CLI
 brew "k3d"                      # Lightweight local Kubernetes
