@@ -69,6 +69,7 @@ brew "helm"                     # Kubernetes package manager
 # INFRASTRUCTURE & DEVOPS
 # ============================================
 brew "hashicorp/tap/terraform"  # Infrastructure as Code
+brew "awscli"                   # AWS Command Line Interface
 #brew "azure-cli"                # Azure Command Line Interface
 
 # ============================================
