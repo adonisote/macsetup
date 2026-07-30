@@ -41,6 +41,7 @@ brew "mas"                      # Mac App Store CLI
 brew "gh"                       # GitHub CLI
 brew "neovim"                   # Modern Vim editor
 brew "starship"                 # Cross-shell prompt for astronauts
+brew "ngrok"                    # Secure tunnels to localhost
 cask "claude-code"              # Claude Code - agentic coding CLI (stable)
 
 

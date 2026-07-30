@@ -25,7 +25,7 @@ echo "╚═══════════════════════�
 header "CLI TOOLS (installed?)"
 # ─────────────────────────────────────────
 
-tools=(wget tree jq yq rg bat eza fzf tldr btop mas gh nvim starship fnm uv docker docker-compose colima kubectl helm terraform)
+tools=(wget tree jq yq rg bat eza fzf tldr btop mas gh nvim starship fnm uv docker docker-compose colima kubectl helm terraform ngrok)
 
 for tool in "${tools[@]}"; do
   if command -v "$tool" &>/dev/null; then
@@ -97,6 +97,18 @@ if [ -n "$GIT_EDITOR" ]; then
   pass "git core.editor = \"$GIT_EDITOR\""
 else
   warn "git core.editor not set — run: git config --global core.editor \"code --wait\""
+fi
+
+# ─────────────────────────────────────────
+header "NGROK"
+# ─────────────────────────────────────────
+
+if command -v ngrok &>/dev/null; then
+  if ngrok config check &>/dev/null; then
+    pass "ngrok authtoken configured"
+  else
+    warn "ngrok installed but no authtoken set — run: ngrok config add-authtoken YOUR_TOKEN"
+  fi
 fi
 
 # ─────────────────────────────────────────

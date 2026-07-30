@@ -208,6 +208,13 @@ if command -v gh &> /dev/null; then
 fi
 
 
+# ── ngrok hint ───────────────────────────────
+if command -v ngrok &> /dev/null; then
+    echo ""
+    echo "💡 Tip: Add your ngrok authtoken by running: ngrok config add-authtoken YOUR_TOKEN"
+fi
+
+
 # ============================================
 # DONE
 # ============================================
