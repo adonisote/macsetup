@@ -69,7 +69,7 @@ else
   if grep -q "eza" "$ZSHRC"; then
     pass "eza alias found in ~/.zshrc"
   else
-    warn "no eza alias — add: alias ls=\"eza --icons\" to ~/.zshrc"
+    warn "no eza alias — add: alias ls=\"eza --icons=auto\" to ~/.zshrc"
   fi
 fi
 
